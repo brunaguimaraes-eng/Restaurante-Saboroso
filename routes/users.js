@@ -1,5 +1,4 @@
-const connection = require('./../inc/db');
-var conn = require('./../inc/db');
+var conn = require('./../inc/db.js');
 var express = require('express');
 var router = express.Router();
 
