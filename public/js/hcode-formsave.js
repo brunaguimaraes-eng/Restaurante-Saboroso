@@ -11,8 +11,8 @@ HTMLFormElement.prototype.save = function(){
             let formData = new FormData(form);
 
             fetch(form.action, {
-            method: form.method,
-            body: formData
+                method: form.method,
+                body: formData
             })
             .then(response => response.json())
             .then(json => {
@@ -25,16 +25,8 @@ HTMLFormElement.prototype.save = function(){
 
             })
 
-
         });
 
-
-
-
     })
-
-    
-
-
 
 }

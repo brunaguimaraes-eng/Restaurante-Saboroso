@@ -165,6 +165,8 @@
 
   formUpdate.save().then(json => {
 
+    console.log("RESPOSTA DO SERVIDOR: ", json);
+
     window.location.reload();
 
   }).catch(err => {
