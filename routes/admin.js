@@ -130,7 +130,6 @@ router.get("/reservations", function(req, res, next){
         
 });
 
-
 router.post("/reservations", function(req, res, next){
 
     reservations.save(req.fields, req.files).then(results => {
@@ -150,7 +149,6 @@ router.delete("/reservations/:id", function(req, res, next){
     }).catch (err => {
         res.send(err);
     })
-
 
 })
 
