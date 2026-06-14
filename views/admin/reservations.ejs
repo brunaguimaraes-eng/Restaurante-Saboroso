@@ -210,7 +210,20 @@
 
   new HcodeGrid({  
     deleteUrl: '/admin/reservations/${data.id}',
-    deleteMsg: 'Deseja excluir a reserva de ${data.name}?'
+    deleteMsg: 'Deseja excluir a reserva de ${data.name}?',
+    onUpdateLoad: (FormUpdate, name, data)=>{
+        
+        let input = FormUpdate.querySelector(`[name=${name}]`);
+
+          switch(name){
+            case 'date':
+              if (input) input.value = moment(data[name]).format('YYYY-MM-DD');
+            break;
+            default:          
+              if (input) input.value = data[name];         
+          }       
+
+      }
   }) 
 
 
