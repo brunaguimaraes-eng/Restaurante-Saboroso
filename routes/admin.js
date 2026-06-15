@@ -172,7 +172,19 @@ router.get("/reservations", function(req, res, next){
         res.send(err); 
     });
         
-});
+})
+
+router.get("/reservations/chart", function(req, res, next){
+
+    // Colocando datas fixas padrão compatíveis com os dados do curso
+    req.query.start = (req.query.start) ? req.query.start : '2000-01-01';
+    req.query.end = (req.query.end) ? req.query.end : '2026-12-31'; 
+
+    reservations.chart(req).then(chartData => {
+        res.send(chartData);
+    })
+
+})
 
 router.post("/reservations", function(req, res, next){
 
