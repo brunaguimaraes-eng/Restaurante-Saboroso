@@ -3,6 +3,7 @@ var express = require('express');
 var menus = require ('./../inc/menus.js')
 var reservations = require('./../inc/reservations.js')
 var contacts = require('./../inc/contacts.js')
+var emails = require('./../inc/emails.js')
 var router = express.Router();
 
 
@@ -102,6 +103,20 @@ router.get('/services', function(req, res, next){
     background: 'images/img_bg_1.jpg',
     h1: 'É um prazer poder servir!'
   });
+
+})
+
+router.post("/subscribe", function(req, res, next) {
+
+  emails.save(req).then(results => {
+
+    res.send(results)
+
+  }).catch (err => {
+    res.send(err);
+
+  })
+
 
 })
 
