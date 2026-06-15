@@ -152,7 +152,7 @@ router.delete("/menus/:id", function(req, res, next){
 
 router.get("/reservations", function(req, res, next){
 
-    reservations.getReservantions().then(data => {
+    reservations.getReservations().then(data => {
 
         res.render("admin/reservations", admin.getParams(req, {
             date: {},
@@ -160,7 +160,10 @@ router.get("/reservations", function(req, res, next){
             moment
         }))
 
-    })
+    }).catch(err => {
+        console.error(err);
+        res.send(err); 
+    });
         
 });
 
